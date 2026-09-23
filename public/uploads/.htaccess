@@ -1,0 +1,10 @@
+# Ce dossier ne contient que des fichiers envoyés par l'admin.
+# Aucun ne doit jamais être exécuté, même si un fichier malveillant
+# parvenait à passer la validation du contrôleur.
+php_flag engine off
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8
+
+<FilesMatch "\.(?i:php|phtml|phar|cgi|pl|py|sh)$">
+    Require all denied
+</FilesMatch>

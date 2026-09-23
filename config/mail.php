@@ -110,6 +110,18 @@ return [
     |
     */
 
+    /*
+    |--------------------------------------------------------------------------
+    | Destinataire des notifications
+    |--------------------------------------------------------------------------
+    |
+    | Adresse de l'artisan, prévenu à chaque demande de devis reçue via le
+    | formulaire de contact du site.
+    |
+    */
+
+    'artisan' => env('MAIL_ARTISAN'),
+
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),

@@ -16,9 +16,14 @@
 /public/build
 /public/hot
 /public/storage
+# Images envoyées depuis l'admin : jamais versionnées, jamais écrasées
+# au déploiement. Le .htaccess, lui, doit suivre.
+/public/uploads/*
+!/public/uploads/.htaccess
 /storage/*.key
 /storage/pail
 /vendor
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
