@@ -9,6 +9,8 @@ use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\RealisationController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MetierController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -29,6 +31,8 @@ Route::get('/accueil', [AccueilController::class, 'index']);
 Route::get('/realisations', [RealisationController::class, 'index']);
 
 Route::get('/articles', [ArticleController::class, 'index']);
+
+Route::get('/metiers', [MetierController::class, 'index']);
 
 // Route publique et non authentifiée : sans limite, n'importe qui peut
 // remplir la table en boucle. 5 envois par minute et par IP.
@@ -57,6 +61,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/articles', [ArticleController::class, 'ajouter']);
     Route::post('/articles/{article}', [ArticleController::class, 'modifier']);
     Route::delete('/articles/{article}', [ArticleController::class, 'supprimer']);
+
+    // Détails de savoir-faire rattachés à un service.
+    Route::post('/metiers', [MetierController::class, 'ajouter']);
+    Route::put('/metiers/{metier}', [MetierController::class, 'modifier']);
+    Route::delete('/metiers/{metier}', [MetierController::class, 'supprimer']);
+
+    // Chiffres du tableau de bord, recalculés à chaque appel.
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::get('/messages', [MessageController::class, 'listerMessages']);
     Route::post('/messages/{message}/traiter', [MessageController::class, 'traiter']);
