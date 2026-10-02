@@ -1,11 +1,11 @@
 services:
   mysql:
     image: mysql:8.4
-    container_name: mysql-pecc
+    container_name: mysql-PeCcS
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: pecc
+      MYSQL_DATABASE: PeCcS
     ports:
       - "3306:3306"
     volumes:
@@ -13,7 +13,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: phpmyadmin-pecc
+    container_name: phpmyadmin-PeCcS
     restart: unless-stopped
     depends_on:
       - mysql
