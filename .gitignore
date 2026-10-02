@@ -27,3 +27,4 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
+App\Models\User::create(['name' => 'Admin', 'email' => 'contact@peccs.fr', 'password' => 'admin123']);

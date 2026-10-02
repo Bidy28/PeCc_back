@@ -73,4 +73,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/messages', [MessageController::class, 'listerMessages']);
     Route::post('/messages/{message}/traiter', [MessageController::class, 'traiter']);
     Route::delete('/messages/{message}', [MessageController::class, 'supprimer']);
+
+    Route::post('/profil', [AuthController::class, 'modifier']);
 });
